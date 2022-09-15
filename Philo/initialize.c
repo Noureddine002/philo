@@ -6,7 +6,7 @@
 /*   By: ntanjaou <ntanjaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 14:39:54 by ntanjaou          #+#    #+#             */
-/*   Updated: 2022/05/13 18:56:53 by ntanjaou         ###   ########.fr       */
+/*   Updated: 2022/09/15 16:28:36 by ntanjaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ int	ft_initialize(t_data *philo_data, int ac, char **av)
 		philo_data->must_eat_count = -1;
 	philo_data->must_eat_count_reached = 0;
 	philo_data->philo_is_dead = 0;
-	if (philo_data->nb_philos < 1 || philo_data->time_to_die < 60
-		|| philo_data->time_to_eat < 60 || philo_data->time_to_sleep < 60)
+	if (philo_data->nb_philos < 1 || philo_data->time_to_die < 0
+		|| philo_data->time_to_eat < 0 || philo_data->time_to_sleep < 0 || philo_data->nb_philos > 200)
 		return (0);
 	if (!ft_initialize_mutex(philo_data))
 		return (0);

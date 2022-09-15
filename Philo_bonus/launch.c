@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ntanjaou <ntanjaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/12 20:34:15 by aqadil            #+#    #+#             */
-/*   Updated: 2022/05/13 18:24:30 by ntanjaou         ###   ########.fr       */
+/*   Created: 2022/09/15 15:02:27 by ntanjaou          #+#    #+#             */
+/*   Updated: 2022/09/15 16:47:14 by ntanjaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ void	start_philo(t_philo *philo)
 	philo_data = philo->philo_data;
 	philo->last_philo_meal = get_time();
 	pthread_create(&(philo->philo_thread), NULL, monitor_philos, philo);
-	if (philo->philo_id % 2)
-		usleep(1000);
+	// if (philo->philo_id % 2)
+	// 	usleep(1000);
 	while (!(philo_data->philo_died) && !(philo->philo_done_eating))
 	{
 		launch_eating_process(philo);
