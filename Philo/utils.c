@@ -44,13 +44,11 @@ int	check_is_digit(char **av)
 {
 	int	i;
 	int	j;
-	int	k;
 
 	i = 1;
 	while (av[i])
 	{
 		j = -1;
-		k = 0;
 		while (av[i][++j])
 			if (av[i][j] < '0' || av[i][j] > '9')
 				return (0);
