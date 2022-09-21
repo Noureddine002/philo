@@ -24,9 +24,9 @@ void	launch_eating_process(t_philo *philo)
 	pthread_mutex_lock(&(philo_data->meal));
 	display_message(philo_data, philo->num_philo, "is eating");
 	philo->last_time_ate = get_time();
+	pthread_mutex_unlock(&(philo_data->meal));
 	time_calcul(philo_data->time_to_eat, philo_data);
 	(philo->num_eat)++;
-	pthread_mutex_unlock(&(philo_data->meal));
 	pthread_mutex_unlock(&(philo_data->forks[philo->left_fork]));
 	pthread_mutex_unlock(&(philo_data->forks[philo->right_fork]));
 }
