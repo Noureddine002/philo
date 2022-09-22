@@ -62,7 +62,7 @@ void	display_message(t_data *philo_data, int num_philo, char *str)
 	pthread_mutex_lock(&(philo_data->message));
 	if (!(philo_data->philo_is_dead))
 	{
-		printf("%lli", get_time() - philo_data->time_start);
+		printf("%lli ms ", get_time() - philo_data->time_start);
 		printf(" %d ", num_philo + 1);
 		printf("%s\n", str);
 	}

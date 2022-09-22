@@ -25,7 +25,7 @@ void	clear(t_data *philo_data)
 		{
 			i = -1;
 			while (++i < philo_data->number_of_philo)
-				kill(philo_data->philo[i].process_id, 15);
+				kill(philo_data->philo[i].process_id, SIGKILL);
 			break ;
 		}
 	}	
@@ -58,7 +58,6 @@ void	*monitor_philos(void *arg_philo)
 			sem_wait(philo_data->message);
 			exit(1);
 		}
-		usleep(1000);
 	}
 	return (NULL);
 }
@@ -70,8 +69,6 @@ void	start_philo(t_philo *philo)
 	philo_data = philo->philo_data;
 	philo->last_philo_meal = get_time();
 	pthread_create(&(philo->philo_thread), NULL, monitor_philos, philo);
-	// if (philo->philo_id % 2)
-	// 	usleep(1000);
 	while (!(philo_data->philo_died) && !(philo->philo_done_eating))
 	{
 		launch_eating_process(philo);

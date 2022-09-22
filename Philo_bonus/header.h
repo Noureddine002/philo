@@ -21,6 +21,8 @@
 # include <fcntl.h>
 # include <sys/time.h>
 # include <signal.h>
+# include <sys/types.h>
+# include <sys/wait.h>
 
 typedef struct s_philo
 {
