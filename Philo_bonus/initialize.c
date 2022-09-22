@@ -21,9 +21,6 @@ int	initialize_semaphore(t_data *philo_data)
 			philo_data->number_of_philo);
 	philo_data->message = sem_open("/message", O_CREAT, S_IRWXU, 1);
 	philo_data->meal = sem_open("/meal", O_CREAT, S_IRWXU, 1);
-	if (philo_data->forks <= 0 || philo_data->message <= 0
-		|| philo_data->meal <= 0)
-		return (0);
 	return (1);
 }
 
