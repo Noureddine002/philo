@@ -17,9 +17,9 @@ void	put_message(t_data *philo_data, int id, char *message)
 	sem_wait(philo_data->message);
 	if (!(philo_data->philo_died))
 	{
-		printf("%lli ", get_time() - philo_data->time_start);
-		printf("%d ", id + 1);
-		printf("%s\n", message);
+		printf("%lli ms | ", get_time() - philo_data->time_start);
+		printf("id : (%d) ", id + 1);
+		printf("| %s\n", message);
 	}
 	sem_post(philo_data->message);
 }

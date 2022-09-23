@@ -93,18 +93,23 @@ int	lauch_philo(t_data *philo_data)
 {
 	int		i;
 	t_philo	*philo;
+	pid_t id_p;
 
 	i = -1;
+	id_p = getpid();
 	philo = philo_data->philo;
 	philo_data->time_start = get_time();
 	while (++i < philo_data->number_of_philo)
 	{
-		philo[i].process_id = fork();
-		if (philo[i].process_id < 0)
-			return (0);
-		if (philo[i].process_id == 0)
-			start_philo(&philo[i]);
-		usleep(50);
+		if(id_p == getpid())
+		{
+			philo[i].process_id = fork();
+			if (philo[i].process_id < 0)
+				return (0);
+			if (philo[i].process_id == 0)
+			 	start_philo(&philo[i]);
+			usleep(50);
+		}
 	}
 	clear(philo_data);
 	return (1);
