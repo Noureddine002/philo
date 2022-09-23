@@ -19,7 +19,7 @@ int	main(int ac, char **av)
 	if (ac < 5 || ac > 6)
 		return (ft_error("invalid argument number !!\n", 0));
 	if (!arg_validation(av))
-		return (ft_error("invalid argument type !!\n", 0));
+		return (ft_error("invalid argument !!\n", 0));
 	if (!ft_initialize(&philo_data, av))
 		return (ft_error("something went wrong while initializing !!\n", 0));
 	if (!lauch_philo(&philo_data))

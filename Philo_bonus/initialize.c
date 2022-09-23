@@ -56,8 +56,9 @@ int	ft_initialize(t_data *philo_data, char **argv)
 	else
 		philo_data->number_of_eat = -1;
 	if (philo_data->number_of_philo < 1
-		|| philo_data->time_to_die < 60 || philo_data->time_to_eat < 60
-		|| philo_data->time_to_sleep < 60)
+		|| philo_data->number_of_philo > 200
+		|| philo_data->time_to_die < 0 || philo_data->time_to_eat < 0
+		|| philo_data->time_to_sleep < 0)
 		return (0);
 	if (!initialize_semaphore(philo_data))
 		return (0);
